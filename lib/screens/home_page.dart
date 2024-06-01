@@ -10,20 +10,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   late Future<DataModel> dataModel;
-
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     dataModel = DataService.fetchData();
   }
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: <Widget>[],
-    );
+    return FutureBuilder(
+        future: dataModel,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            print(snapshot.data!.author);
+             return Center(
+              child: Card(
+                color: Colors.pinkAccent[300],
+                child: Column(
+                  children: [Text(snapshot.data!.author)],
+                ),
+              ),
+            );
+          }
+
+          return const CircularProgressIndicator();
+        });
   }
 }

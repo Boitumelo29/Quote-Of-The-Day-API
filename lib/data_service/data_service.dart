@@ -8,9 +8,6 @@ class DataService {
   static Future<DataModel> fetchData() async {
     var uri = "https://favqs.com/api/qotd";
     final response = await http.get(Uri.parse(uri));
-
-    print(response.body);
-
     if (response.statusCode == 200) {
       return DataModel.fromJson(json.decode(response.body));
     }
