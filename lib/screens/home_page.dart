@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quoteoftheday/data_service/data_service.dart';
 import 'package:quoteoftheday/model/data_model.dart';
+import 'package:skeleton_text/skeleton_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,11 +12,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<DataModel> dataModel;
+  final DataService _dataService = DataService();
 
   @override
   void initState() {
     super.initState();
     dataModel = DataService.fetchData();
+    _dataService.onUpdate = () {
+      setState(() {}); // This will rebuild the widget
+    };
   }
 
   @override
@@ -32,21 +37,48 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(20)),
                 color: Colors.pinkAccent[300],
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(snapshot.data!.author),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(snapshot.data!.body)
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(snapshot.data!.author),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(snapshot.data!.body),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            next();
+                          },
+                          child: const Text("Next"))
+                    ],
+                  ),
                 ),
               ),
             );
           }
 
-          return const CircularProgressIndicator();
+          return Center(
+            child: SkeletonAnimation(
+                child: Container(
+              width: 350,
+              height: 350,
+              decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(20)),
+            )),
+          );
         });
+  }
+
+  void next() {
+    setState(() {
+      build(context);
+    });
   }
 }

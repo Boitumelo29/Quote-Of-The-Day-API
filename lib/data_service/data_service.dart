@@ -18,15 +18,6 @@ class DataService {
     throw "An Error Occurred";
   }
 
-  //* void nextQuote(BuildContext context) {
-  //     fetchData().then((data) {
-  //       if (onUpdate != null) {
-  //         onUpdate!(); // Call the callback to update the UI
-  //       }
-  //     }).catchError((error) {
-  //       print("Failed to fetch data: $error");
-  //     });
-  //   }*/
   void nextQuote(BuildContext context) {
     fetchData().then((data) {
       if (onUpdate != null) {
