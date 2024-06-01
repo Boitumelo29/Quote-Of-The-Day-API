@@ -12,15 +12,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<DataModel> dataModel;
-  final DataService _dataService = DataService();
 
   @override
   void initState() {
     super.initState();
     dataModel = DataService.fetchData();
-    _dataService.onUpdate = () {
-      setState(() {}); // This will rebuild the widget
-    };
   }
 
   @override
@@ -62,7 +58,6 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           }
-
           return Center(
             child: SkeletonAnimation(
                 child: Container(

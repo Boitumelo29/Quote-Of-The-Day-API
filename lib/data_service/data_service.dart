@@ -18,13 +18,5 @@ class DataService {
     throw "An Error Occurred";
   }
 
-  void nextQuote(BuildContext context) {
-    fetchData().then((data) {
-      if (onUpdate != null) {
-        onUpdate!();
-      }
-    }).catchError((error) {
-      print("error");
-    });
-  }
+  void nextQuote(BuildContext context) {}
 }
