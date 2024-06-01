@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 class DataModel {
   final String author;
   final String body;
-  final String upvotesCount;
-  final String downvotesCount;
+   final int upvotesCount;
+   final int downvotesCount;
 
   DataModel(
       {required this.author,
       required this.body,
-      required this.upvotesCount,
-      required this.downvotesCount});
+       required this.upvotesCount,
+        required this.downvotesCount
+      });
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     var quoteJson = json['quote'];
@@ -18,6 +19,7 @@ class DataModel {
         author: quoteJson["author"],
         body: quoteJson["body"],
         upvotesCount: quoteJson["upvotes_count"],
-        downvotesCount: quoteJson["downvotes_count"]);
+        downvotesCount: quoteJson["downvotes_count"]
+    );
   }
 }

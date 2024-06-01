@@ -20,16 +20,27 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return FutureBuilder<DataModel>(
         future: dataModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print(snapshot.data!.author);
-             return Center(
-              child: Card(
+            return Center(
+              child: Container(
+                width: 350,
+                height: 350,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(20)),
                 color: Colors.pinkAccent[300],
                 child: Column(
-                  children: [Text(snapshot.data!.author)],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(snapshot.data!.author),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(snapshot.data!.body)
+                  ],
                 ),
               ),
             );
