@@ -1,10 +1,13 @@
 import 'dart:convert';
 
-
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:quoteoftheday/model/data_model.dart';
 import 'package:http/http.dart' as http;
 
 class DataService {
+  Function? onUpdate;
+
   static Future<DataModel> fetchData() async {
     var uri = "https://favqs.com/api/qotd";
     final response = await http.get(Uri.parse(uri));
@@ -13,5 +16,24 @@ class DataService {
     }
 
     throw "An Error Occurred";
+  }
+
+  //* void nextQuote(BuildContext context) {
+  //     fetchData().then((data) {
+  //       if (onUpdate != null) {
+  //         onUpdate!(); // Call the callback to update the UI
+  //       }
+  //     }).catchError((error) {
+  //       print("Failed to fetch data: $error");
+  //     });
+  //   }*/
+  void nextQuote(BuildContext context) {
+    fetchData().then((data) {
+      if (onUpdate != null) {
+        onUpdate!();
+      }
+    }).catchError((error) {
+      print("error");
+    });
   }
 }
