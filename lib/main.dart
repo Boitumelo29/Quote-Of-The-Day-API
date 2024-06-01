@@ -24,8 +24,11 @@ class MyApp extends StatelessWidget {
           ),
           bottomNavigationBar: const TabBar(
             tabs: [
-              Icon(Icons.home),
-              Icon(Icons.favorite),
+              Icon(
+                Icons.home,
+                color: Colors.grey,
+              ),
+              Icon(Icons.favorite, color: Colors.grey),
             ],
           ),
           body: const TabBarView(

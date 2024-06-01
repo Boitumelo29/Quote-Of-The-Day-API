@@ -47,11 +47,19 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      ElevatedButton(
-                          onPressed: () {
+                      GestureDetector(
+                          onTap: () {
                             next();
                           },
-                          child: const Text("Next"))
+                          child: Container(
+                              width: 100,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[300],
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Center(
+                                child: Text("Next"),
+                              )))
                     ],
                   ),
                 ),
