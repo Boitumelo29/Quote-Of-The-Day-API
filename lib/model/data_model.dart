@@ -13,10 +13,11 @@ class DataModel {
       required this.downvotesCount});
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
+    var quoteJson = json['quote'];
     return DataModel(
-        author: json["author"],
-        body: json["body"],
-        upvotesCount: json["upvotes_count"],
-        downvotesCount: json["downvotes_count"]);
+        author: quoteJson["author"],
+        body: quoteJson["body"],
+        upvotesCount: quoteJson["upvotes_count"],
+        downvotesCount: quoteJson["downvotes_count"]);
   }
 }
