@@ -18,5 +18,8 @@ class DataService {
     throw "An Error Occurred";
   }
 
-  void nextQuote(BuildContext context) {}
+  void nextQuote(BuildContext context) {
+
+    //here to add data 
+  }
 }
