@@ -19,7 +19,5 @@ class DataService {
   }
 
   void nextQuote(BuildContext context) {
-
-    //
   }
 }
