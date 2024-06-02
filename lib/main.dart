@@ -5,7 +5,7 @@ import 'package:quoteoftheday/screens/home_page.dart';
 void main() {
   runApp(const MyApp());
 }
-
+//the link : https://favqs.com/api/
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
