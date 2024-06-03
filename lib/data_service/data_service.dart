@@ -42,9 +42,22 @@ class DataService {
     throw "error";
   }
 
-  static Future<UserModel> createUser() async {
+  // I created function that collects the usersname, email, password
+
+  static Future<UserModel> createUser(
+      String username, String email, String password) async {
     var uri = "https://favqs.com/api/users";
-    final response = await http.post(Uri.parse(uri));
+    final response = await http.post(
+      Uri.parse(uri),
+      headers: <String, String>{'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'user': {
+          'login': username,
+          'email': email,
+          'password': password,
+        }
+      }),
+    );
 
     if (response.statusCode == 200) {
       return UserModel.fromJson(json.decode(response.body));
