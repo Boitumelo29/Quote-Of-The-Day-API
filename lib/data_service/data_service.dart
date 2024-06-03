@@ -18,7 +18,16 @@ class DataService {
     throw "An Error Occurred";
   }
 
-  void nextQuote(BuildContext context) {
-    
+  void nextQuote(BuildContext context) {}
+
+  static Future<DataModel> favData() async {
+    var uri = "/api/quotes/:quote_id/fav";
+
+    final response = await http.put(Uri.parse(uri));
+
+    if (response.statusCode == 200) {
+      return DataModel.fromJson(json.decode(response.body));
+    }
+    throw "error";
   }
 }
