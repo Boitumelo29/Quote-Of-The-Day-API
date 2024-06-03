@@ -44,24 +44,19 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(snapshot.data!.body),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  isFavourite = !isFavourite;
-                                });
-                              },
-                              icon: Icon(isFavourite
-                                  ? Icons.bookmark
-                                  : Icons.bookmark_outlined))
-                        ],
+                      Text(snapshot.data!.body),
+                      const SizedBox(
+                        height: 10,
                       ),
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isFavourite = !isFavourite;
+                            });
+                          },
+                          icon: Icon(isFavourite
+                              ? Icons.bookmark
+                              : Icons.bookmark_outlined)),
                       const SizedBox(
                         height: 10,
                       ),
@@ -71,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: Container(
                               width: 100,
-                              height: 80,
+                              height: 50,
                               decoration: BoxDecoration(
                                   color: Colors.grey[300],
                                   borderRadius: BorderRadius.circular(10)),
