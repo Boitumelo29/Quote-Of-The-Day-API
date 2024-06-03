@@ -43,8 +43,12 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Text(snapshot.data!.body),
+                      Row(children <Widget>[ Text(snapshot.data!.body),
                       const SizedBox(
+                        height: 10,
+                      ),
+                      ]),
+                       const SizedBox(
                         height: 10,
                       ),
                       GestureDetector(
