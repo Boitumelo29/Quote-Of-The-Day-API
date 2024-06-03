@@ -20,7 +20,7 @@ class DataService {
 
   void nextQuote(BuildContext context) {}
 
-  static Future<DataModel> favData(String id) async {
+  static Future<DataModel> favData(int id) async {
     var uri = "https://favqs.com/api/quotes/:$id/fav";
 
     final response = await http.post(Uri.parse(uri));
@@ -31,16 +31,3 @@ class DataService {
     throw "error";
   }
 }
-
-///example on how to implement
-//static Future<DataModel> favData(String quoteId) async {
-//     var uri = Uri.parse('$baseUrl/api/quotes/$quoteId/fav');
-//
-//     final response = await http.post(uri);
-//
-//     if (response.statusCode == 200) {
-//       return DataModel.fromJson(json.decode(response.body));
-//     } else {
-//       throw Exception('Failed to mark as favourite');
-//     }
-//   }
