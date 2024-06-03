@@ -14,7 +14,8 @@ class DataModel {
       required this.body,
       required this.upvotesCount,
       required this.downvotesCount,
-      required this.favorite});
+      required this.favorite
+      });
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     var quoteJson = json['quote'];
@@ -24,6 +25,8 @@ class DataModel {
         body: quoteJson["body"],
         upvotesCount: quoteJson["upvotes_count"],
         downvotesCount: quoteJson["downvotes_count"],
-        favorite: quoteJson['user_details']['favorite']);
+        favorite: quoteJson['user_details']
+    );
   }
 }
+// remove fav

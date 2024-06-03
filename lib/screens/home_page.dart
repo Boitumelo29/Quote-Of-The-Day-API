@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
         future: dataModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print(snapshot.data!.favorite);
+           // print(snapshot.data!.favorite);
             return Center(
               child: Container(
                 width: 350,
@@ -51,16 +51,15 @@ class _HomePageState extends State<HomePage> {
                         height: 10,
                       ),
                       IconButton(
-                          onPressed: () {
-                            DataService.favData(snapshot.data!.id);
-
-                            setState(() {
-                              isFavourite = !isFavourite;
-                            });
-                          },
-                          icon: Icon(isFavourite
-                              ? Icons.bookmark
-                              : Icons.bookmark_outlined)),
+                        onPressed: () {
+                          setState(() {
+                            isFavourite = !isFavourite;
+                          });
+                        },
+                        icon: Icon(
+                          isFavourite ? Icons.bookmark : Icons.bookmark_outline,
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
                       ),

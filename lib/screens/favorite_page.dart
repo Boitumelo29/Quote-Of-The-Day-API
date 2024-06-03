@@ -8,10 +8,24 @@ class FavoritePage extends StatefulWidget {
 }
 
 class _FavoritePageState extends State<FavoritePage> {
+  bool isFavourite = false;
+
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: <Widget>[],
+    return Column(
+        children: <Widget>[
+        IconButton(
+        onPressed: ()
+    {
+      setState(() {
+        isFavourite = !isFavourite;
+      });
+    },
+    icon: Icon(
+    isFavourite ? Icons.bookmark : Icons.bookmark_outline,
+    ),
+    )
+    ],
     );
   }
 }
