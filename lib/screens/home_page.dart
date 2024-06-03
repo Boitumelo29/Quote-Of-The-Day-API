@@ -46,11 +46,23 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[Text(snapshot.data!.body),
-                        const SizedBox(height: 10,),
-                          IconButton(onPressed: (){}, icon: Icon( isFavourite ? Icons.bookmark_outlined : Icons.bookmark_outlined))
-                        ],),
-                       const SizedBox(
+                        children: <Widget>[
+                          Text(snapshot.data!.body),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  isFavourite = !isFavourite;
+                                });
+                              },
+                              icon: Icon(isFavourite
+                                  ? Icons.bookmark
+                                  : Icons.bookmark_outlined))
+                        ],
+                      ),
+                      const SizedBox(
                         height: 10,
                       ),
                       GestureDetector(
