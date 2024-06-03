@@ -36,9 +36,10 @@ class UserModel {
       {required this.username, required this.email, required this.password});
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
+    var user = json['user'];
     return UserModel(
-        username: json['login'],
-        email: json['email'],
-        password: json['password']);
+        username: user['login'],
+        email: user['email'],
+        password: user['password']);
   }
 }

@@ -42,7 +42,13 @@ class DataService {
     throw "error";
   }
 
-  static Future<DataModel> createUser() {
+  static Future<UserModel> createUser() async {
+    var uri = "https://favqs.com/api/users";
+    final response = await http.post(Uri.parse(uri));
+
+    if (response.statusCode == 200) {
+      return UserModel.fromJson(json.decode(response.body));
+    }
     throw "";
   }
 }
