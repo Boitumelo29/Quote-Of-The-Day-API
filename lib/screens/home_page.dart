@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isFavourite = false;
     return FutureBuilder<DataModel>(
         future: dataModel,
         builder: (context, snapshot) {
@@ -43,11 +44,12 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(children <Widget>[ Text(snapshot.data!.body),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ]),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[Text(snapshot.data!.body),
+                        const SizedBox(height: 10,),
+                          IconButton(onPressed: (){}, icon: Icon( isFavourite ? Icons.bookmark_outlined : Icons.bookmark_outlined))
+                        ],),
                        const SizedBox(
                         height: 10,
                       ),
