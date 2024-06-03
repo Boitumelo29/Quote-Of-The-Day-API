@@ -21,6 +21,6 @@ class DataModel {
         body: quoteJson["body"],
         upvotesCount: quoteJson["upvotes_count"],
         downvotesCount: quoteJson["downvotes_count"],
-        favorite: quoteJson['']);
+        favorite: quoteJson['favorite']);
   }
 }
