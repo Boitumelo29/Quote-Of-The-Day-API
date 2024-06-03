@@ -23,11 +23,22 @@ class DataService {
   static Future<DataModel> favData(int id) async {
     var uri = "https://favqs.com/api/quotes/:$id/fav";
 
-    final response = await http.post(Uri.parse(uri));
+    final response = await http.put(Uri.parse(uri));
 
     if (response.statusCode == 200) {
       return DataModel.fromJson(json.decode(response.body));
     }
     throw "error";
+  }
+
+  Future<DataModel> listData() async {
+    var uri = "https://favqs.com/api/quotes";
+    final response = await http.get(Uri.parse(uri));
+    print(response.body);
+
+    if (response.statusCode == 200) {
+      return DataModel.fromJson(json.decode(response.body));
+    }
+    throw "";
   }
 }

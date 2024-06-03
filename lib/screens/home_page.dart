@@ -20,14 +20,16 @@ class _HomePageState extends State<HomePage> {
     dataModel = DataService.fetchData();
   }
 
+  bool isFavourite = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isFavourite = false;
     return FutureBuilder<DataModel>(
         future: dataModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-           // print(snapshot.data!.favorite);
+            print('Favorite: ${snapshot.data!.favorite}');
+            // print(snapshot.data!.favorite);
             return Center(
               child: Container(
                 width: 350,
@@ -52,9 +54,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       IconButton(
                         onPressed: () {
-                          setState(() {
-                            isFavourite = !isFavourite;
-                          });
+                          isFavouriteIcon();
+                          DataService.favData(snapshot.data!.id);
                         },
                         icon: Icon(
                           isFavourite ? Icons.bookmark : Icons.bookmark_outline,
@@ -63,11 +64,23 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 10,
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            next();
-                          },
-                          child: Container(
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Row(
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.upgrade_sharp)),
+                              Text("${snapshot.data!.upvotesCount}")
+                            ],
+                          ),
+                          const SizedBox(),
+                          GestureDetector(
+                            onTap: () {
+                              next();
+                            },
+                            child: Container(
                               width: 100,
                               height: 50,
                               decoration: BoxDecoration(
@@ -75,7 +88,22 @@ class _HomePageState extends State<HomePage> {
                                   borderRadius: BorderRadius.circular(10)),
                               child: const Center(
                                 child: Text("Next"),
-                              )))
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(Icons.download_sharp)),
+                              Text("${snapshot.data!.downvotesCount}")
+                            ],
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -98,6 +126,12 @@ class _HomePageState extends State<HomePage> {
   void next() {
     setState(() {
       build(context);
+    });
+  }
+
+  void isFavouriteIcon() {
+    setState(() {
+      isFavourite = !isFavourite;
     });
   }
 }

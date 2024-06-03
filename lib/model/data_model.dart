@@ -14,19 +14,17 @@ class DataModel {
       required this.body,
       required this.upvotesCount,
       required this.downvotesCount,
-      required this.favorite
-      });
+      required this.favorite});
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     var quoteJson = json['quote'];
+    var userDetails = quoteJson['user_details'] ?? {};
     return DataModel(
         id: quoteJson['id'],
         author: quoteJson["author"],
         body: quoteJson["body"],
         upvotesCount: quoteJson["upvotes_count"],
         downvotesCount: quoteJson["downvotes_count"],
-        favorite: quoteJson['user_details']
-    );
+        favorite: userDetails['favorite'] ?? false);
   }
 }
-// remove fav
