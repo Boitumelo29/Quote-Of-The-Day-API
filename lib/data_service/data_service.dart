@@ -19,6 +19,6 @@ class DataService {
   }
 
   void nextQuote(BuildContext context) {
-    //testing testing test 
+    //testing testing te
   }
 }
