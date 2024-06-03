@@ -58,9 +58,15 @@ class DataService {
         }
       }),
     );
-
-    if (response.statusCode == 200) {
+    //
+    // if (response.statusCode == 200) {
+    //   return UserModel.fromJson(json.decode(response.body));
+    // }
+    //
+    try{
       return UserModel.fromJson(json.decode(response.body));
+    }catch(e){
+      print(e);
     }
     throw "";
   }
