@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late Future<DataModel> dataModel;
+  DataService dataService = DataService();
 
   @override
   void initState() {
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       IconButton(
                           onPressed: () {
+                            dataService.favData(snapshot.data!.id);
                             setState(() {
                               isFavourite = !isFavourite;
                             });

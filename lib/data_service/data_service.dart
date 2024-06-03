@@ -20,10 +20,10 @@ class DataService {
 
   void nextQuote(BuildContext context) {}
 
-  static Future<DataModel> favData() async {
-    var uri = "/api/quotes/:quote_id/fav";
+  static Future<DataModel> favData(String id) async {
+    var uri = "https://favqs.com/api/quotes/:$id/fav";
 
-    final response = await http.put(Uri.parse(uri));
+    final response = await http.post(Uri.parse(uri));
 
     if (response.statusCode == 200) {
       return DataModel.fromJson(json.decode(response.body));
