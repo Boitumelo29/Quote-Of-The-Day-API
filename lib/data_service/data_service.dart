@@ -31,3 +31,16 @@ class DataService {
     throw "error";
   }
 }
+
+///example on how to implement
+//static Future<DataModel> favData(String quoteId) async {
+//     var uri = Uri.parse('$baseUrl/api/quotes/$quoteId/fav');
+//
+//     final response = await http.post(uri);
+//
+//     if (response.statusCode == 200) {
+//       return DataModel.fromJson(json.decode(response.body));
+//     } else {
+//       throw Exception('Failed to mark as favourite');
+//     }
+//   }
