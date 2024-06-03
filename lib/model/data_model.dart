@@ -4,7 +4,7 @@ class DataModel {
   final String body;
   final int upvotesCount;
   final int downvotesCount;
-  final bool favorite;
+ // final bool favorite;
 
   DataModel(
       {required this.id,
@@ -12,7 +12,8 @@ class DataModel {
       required this.body,
       required this.upvotesCount,
       required this.downvotesCount,
-      required this.favorite});
+      //required this.favorite
+      });
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     var quoteJson = json['quote'];
@@ -23,7 +24,8 @@ class DataModel {
         body: quoteJson["body"],
         upvotesCount: quoteJson["upvotes_count"],
         downvotesCount: quoteJson["downvotes_count"],
-        favorite: userDetails['favorite'] ?? false);
+        //favorite: userDetails['favorite'] ?? false
+    );
   }
 }
 

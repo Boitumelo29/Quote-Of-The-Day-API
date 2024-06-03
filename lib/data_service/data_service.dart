@@ -25,6 +25,10 @@ class DataService {
 
     final response = await http.put(Uri.parse(uri));
 
+    // try{
+    //   return DataModel.fromJson(json.decode(response.body));
+    // }catch(e){}
+
     if (response.statusCode == 200) {
       return DataModel.fromJson(json.decode(response.body));
     }
@@ -58,15 +62,18 @@ class DataService {
         }
       }),
     );
-    //
-    // if (response.statusCode == 200) {
-    //   return UserModel.fromJson(json.decode(response.body));
-    // }
-    //
+
+    if (response.statusCode == 200) {
+      return UserModel.fromJson(json.decode(response.body));
+    }else{
+      print(response.request);
+    }
+
     try{
       return UserModel.fromJson(json.decode(response.body));
     }catch(e){
       print(e);
+
     }
     throw "";
   }

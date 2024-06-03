@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         future: dataModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print('Favorite: ${snapshot.data!.favorite}');
+            //print('Favorite: ${snapshot.data!.favorite}');
             // print(snapshot.data!.favorite);
             return Center(
               child: Container(

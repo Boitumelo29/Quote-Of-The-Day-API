@@ -35,11 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
               const Icon(Icons.queue_play_next_outlined),
               TextFormField(
                 controller: username,
-                decoration: const InputDecoration(hintText: "Email"),
+                decoration: const InputDecoration(hintText: "username"),
               ),
               TextFormField(
                 controller: email,
-                decoration: const InputDecoration(hintText: "Password"),
+                decoration: const InputDecoration(hintText: "email"),
               ),
               TextFormField(
                 controller: password,
