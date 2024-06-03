@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quoteoftheday/data_service/data_service.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({super.key});
@@ -12,20 +13,21 @@ class _FavoritePageState extends State<FavoritePage> {
 
   @override
   Widget build(BuildContext context) {
+    DataService.listData();
     return Column(
-        children: <Widget>[
+      children: <Widget>[
         IconButton(
-        onPressed: ()
-    {
-      setState(() {
-        isFavourite = !isFavourite;
-      });
-    },
-    icon: Icon(
-    isFavourite ? Icons.bookmark : Icons.bookmark_outline,
-    ),
-    )
-    ],
+          onPressed: () {
+            DataService.listData();
+            setState(() {
+              isFavourite = !isFavourite;
+            });
+          },
+          icon: Icon(
+            isFavourite ? Icons.bookmark : Icons.bookmark_outline,
+          ),
+        )
+      ],
     );
   }
 }

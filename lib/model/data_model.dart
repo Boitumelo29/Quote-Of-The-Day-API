@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class DataModel {
   final int id;
   final String author;
@@ -26,5 +24,21 @@ class DataModel {
         upvotesCount: quoteJson["upvotes_count"],
         downvotesCount: quoteJson["downvotes_count"],
         favorite: userDetails['favorite'] ?? false);
+  }
+}
+
+class UserModel {
+  final String username;
+  final String email;
+  final String password;
+
+  UserModel(
+      {required this.username, required this.email, required this.password});
+
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+        username: json['login'],
+        email: json['email'],
+        password: json['password']);
   }
 }

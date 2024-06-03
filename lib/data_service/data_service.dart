@@ -31,7 +31,7 @@ class DataService {
     throw "error";
   }
 
-  Future<DataModel> listData() async {
+  static Future<DataModel> listData() async {
     var uri = "https://favqs.com/api/quotes";
     final response = await http.get(Uri.parse(uri));
     print(response.body);
@@ -39,6 +39,10 @@ class DataService {
     if (response.statusCode == 200) {
       return DataModel.fromJson(json.decode(response.body));
     }
+    throw "error";
+  }
+
+  static Future<DataModel> createUser() {
     throw "";
   }
 }
