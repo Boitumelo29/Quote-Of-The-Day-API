@@ -49,17 +49,22 @@ class DataService {
   // I created function that collects the usersname, email, password
 
   static Future<UserModel> createUser(
+
       String username, String email, String password) async {
+    const String apiToken = "9afc0a32916435e644daaac28f617a69";
     var uri = "https://favqs.com/api/users";
     final response = await http.post(
       Uri.parse(uri),
-      headers: <String, String>{'Content-Type': 'application/json'},
+      headers: <String, String>{'Content-Type': 'application/json',
+        'Authorization': 'Token token="$apiToken"',
+        "User-Token": "USER_SESSION_TOKEN"
+      },
       body: jsonEncode({
         'user': {
           'login': username,
           'email': email,
           'password': password,
-        }
+        },
       }),
     );
 
