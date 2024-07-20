@@ -1,7 +1,7 @@
-part of 'freezed_bloc.dart';
+// part of 'freezed_bloc.dart';
 
-@freezed
-class FreezedState with _$FreezedState {
+// @freezed
+// class FreezedState with _$FreezedState {
  
  
-}
+// }

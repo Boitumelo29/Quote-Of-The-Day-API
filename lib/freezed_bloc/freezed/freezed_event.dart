@@ -1,5 +1,5 @@
-part of 'freezed_bloc.dart';
+// part of 'freezed_bloc.dart';
 
-@freezed
-class FreezedEvent with _$FreezedEvent {
-}
+// @freezed
+// class FreezedEvent with _$FreezedEvent {
+// }
